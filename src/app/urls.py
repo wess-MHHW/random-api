@@ -23,6 +23,7 @@ from app import settings
 api_url_patterns = [
     path('',include('users.urls')),
     path('',include('house.urls')),
+    path('',include('tasks.urls'))
 ]
 
 urlpatterns = [

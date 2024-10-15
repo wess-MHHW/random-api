@@ -1,8 +1,8 @@
-from users.models import Profile
 import os
 from uuid import uuid4
 from django.db import models
 from django.utils.deconstruct import deconstructible
+from users.models import Profile
 
 # Create your models here.
 @deconstructible
