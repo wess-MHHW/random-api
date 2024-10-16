@@ -4,3 +4,5 @@ django-environ
 django-markdown
 django-filter
 drf_social_oauth2
+django-filter
+django-background-tasks
