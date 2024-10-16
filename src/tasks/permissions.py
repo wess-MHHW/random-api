@@ -22,7 +22,7 @@ class IsAllowedToEditTaskElseNone(permissions.BasePermission):
         return False
     
     def has_object_permission(self, request, view, obj):
-        return request.user.profile.house == obj.tasks_list.house
+        return request.user.profile.house == obj.task_list.house
     
 
 class IsAllowedToEditAttachementElseNone(permissions.BasePermission):

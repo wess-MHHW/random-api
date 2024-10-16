@@ -68,4 +68,4 @@ class Attachement(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE,related_name="attachements")
 
     def __str__(self):
-        return f"{self.id}-{self.name}"
+        return f"{self.id}"
