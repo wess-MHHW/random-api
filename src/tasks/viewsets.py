@@ -1,4 +1,4 @@
-from rest_framework import viewsets, mixins
+from rest_framework import viewsets, mixins, filters
 
 from .serializers import TaskListSerializer, TaskSerializer, AttachementSerializer
 
@@ -16,6 +16,8 @@ from rest_framework import status as s
 
 from .permissions import IsAllowedToEditTaskListElseNone, IsAllowedToEditTaskElseNone, IsAllowedToEditAttachementElseNone
 
+from django_filters.rest_framework import DjangoFilterBackend
+
 class TaskListViewSet(viewsets.GenericViewSet, mixins.CreateModelMixin, mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin):
     queryset = TaskList.objects.all()
     serializer_class = TaskListSerializer
@@ -25,6 +27,9 @@ class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = [IsAllowedToEditTaskElseNone]
+    filter_backends = [filters.SearchFilter ,DjangoFilterBackend]
+    search_fields = ['name', 'description']
+    filterset_fields = ['status',]
 
     def get_queryset(self):
         queryset = super(TaskViewSet, self).get_queryset()

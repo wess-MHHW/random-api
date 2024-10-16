@@ -42,9 +42,12 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'social_django',
     'drf_social_oauth2',
+    'django_filters',
+    'background_task',
     'users',
     'house',
-    'tasks'
+    'tasks',
+    'jobs'
  
 ]
 
